@@ -1209,8 +1209,10 @@ use an uv layer '{}' that does not exist on the mesh '{}'; using the first uv ch
         # if alpha not 1 then we set the blending mode on
         if DEBUG:
             Log("state material alpha {}".format(alpha))
-        if alpha != 1.0:
+        if alpha != 0.0 and mat_source.transparency_method == "Z_TRANSPARENCY":
             stateset.modes["GL_BLEND"] = "ON"
+        if alpha != 0.0 and mat_source.transparency_method == "MASK":
+            stateset.modes["GL_ALPHA_TEST"] = "ON"
 
         ambient_factor = mat_source.ambient
         if bpy.context.scene.world:
