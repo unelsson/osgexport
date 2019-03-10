@@ -1215,7 +1215,7 @@ use an uv layer '{}' that does not exist on the mesh '{}'; using the first uv ch
             stateset.modes["GL_ALPHA_TEST"] = "ON"
 
         if mat_source.game_settings.use_backface_culling != True:
-            stateset.modes["GL_CULL_FACE OVERRIDE"] = "ON"
+            stateset.modes["GL_CULL_FACE"] = "OVERRIDE"
 
         ambient_factor = mat_source.ambient
         if bpy.context.scene.world:
