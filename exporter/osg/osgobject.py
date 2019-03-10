@@ -914,7 +914,10 @@ class StateSet(Object):
                 else:
                     output.write(self.encode("$##Data 0\n"))
             output.write(self.encode("$#}\n"))
-            output.write(self.encode("RenderingHint 2\n"))
+
+        if ("GL_BLEND" in self.modes and self.modes["GL_BLEND"] == "ON") or ("GL_ALPHA_TEST" in self.modes and self.modes["GL_ALPHA_TEST"] == "ON"):
+            output.write(self.encode("$#RenderingHint 2\n"))
+
 
 class ArrayData(Object):
     instance = 0

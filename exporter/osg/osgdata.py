@@ -1209,9 +1209,11 @@ use an uv layer '{}' that does not exist on the mesh '{}'; using the first uv ch
         # if alpha not 1 then we set the blending mode on
         if DEBUG:
             Log("state material alpha {}".format(alpha))
-        if alpha != 0.0 and mat_source.transparency_method == "Z_TRANSPARENCY":
+        
+        if mat_source.use_transparency and alpha != 0.0 and mat_source.transparency_method == "Z_TRANSPARENCY":
             stateset.modes["GL_BLEND"] = "ON"
-        if alpha != 0.0 and mat_source.transparency_method == "MASK":
+
+        if mat_source.use_transparency and alpha != 0.0 and mat_source.transparency_method == "MASK":
             stateset.modes["GL_ALPHA_TEST"] = "ON"
 
         if mat_source.game_settings.use_backface_culling != True:
@@ -1348,12 +1350,6 @@ use an uv layer '{}' that does not exist on the mesh '{}'; using the first uv ch
             data_texture_slot["BlendType"] = texture_slot.blend_type
 
             stateset.texture_attributes.setdefault(i, []).append(texture)
-
-            try:
-                if t.source_image.getDepth() > 24:  # there is an alpha
-                    stateset.modes["GL_BLEND"] = "ON"
-            except:
-                pass
 
         return data
 
