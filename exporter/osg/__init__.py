@@ -25,16 +25,16 @@ import argparse
 
 bl_info = {
     "name": "Export OSG format (.osgt)",
-    "author": "Cedric Pinson, Jeremy Moles, Peter Amstutz",
+    "author": "Cedric Pinson, Jeremy Moles, Peter Amstutz, Nelsson Huotari",
     "version": (0, 15, 0),
     "blender": (2, 7, 6),
-    "email": "trigrou@gmail.com, jeremy@emperorlinux.com, peter.amstutz@tseboston.com",
+    "email": "unelsson@gmail.com",
     "api": 36339,
     "location": "File > Export > OSG Model (*.osgt)",
     "description": "Export models and animations for use in OpenSceneGraph",
     "warning": "",
-    "wiki_url": "https://github.com/cedricpinson/osgexport/wiki",
-    "tracker_url": "http://github.com/cedricpinson/osgexport",
+    "wiki_url": "",
+    "tracker_url": "http://github.com/unelsson/osgexport",
     "category": "Import-Export"}
 
 __url__ = bl_info["wiki_url"]
